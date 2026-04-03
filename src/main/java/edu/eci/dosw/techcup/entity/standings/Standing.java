@@ -21,7 +21,7 @@ import org.hibernate.annotations.Check;
 	matches_drawn  >= 0  AND
 	goals_made     >= 0  AND
 	goals_against  >= 0  AND
-	total_points   >= 0  AND
+	total_points   >= 0
 """)
 public class Standing {
 	@EmbeddedId

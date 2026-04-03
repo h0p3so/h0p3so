@@ -35,7 +35,7 @@ public class Field {
 	@Column(name = "matched_played")
 	private Integer matchesPlayed;
 
-	@OneToMany
+	@OneToMany(mappedBy = "field")
 	private List<Match> matches;
 
 	@PrePersist
