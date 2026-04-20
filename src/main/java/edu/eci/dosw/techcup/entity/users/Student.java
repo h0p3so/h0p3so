@@ -1,24 +1,30 @@
 /*
+ *                     .___.
+ *  o__        o__     |   |\
+ * /|          /\      |   |X\
+ * / > o        <\     |   |XX\
+ *
  * Student.java
  *
- * Defines and works with basic information about students.
+ * Defines basic information about current students at ECI.
  */
 package edu.eci.dosw.techcup.entity.users;
 
-import edu.eci.dosw.techcup.enums.Program;
+import edu.eci.dosw.techcup.enums.StudentProgram;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.Setter;
 
 @Entity
-@Table(name = "STUDENT")
+@Table(name = "Student")
 @NoArgsConstructor
-@SuperBuilder
-public class Student extends Player {
-	private Integer semester;
-	private Integer dorsalNumber;
-	private Integer eciID;
-	private Program program;
+@Getter
+@Setter
+public class Student extends User {
+    private Integer        semester;
+    private Integer        eciID;
+    private StudentProgram program;
 }

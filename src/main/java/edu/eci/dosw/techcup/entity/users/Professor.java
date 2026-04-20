@@ -1,17 +1,24 @@
 /*
+ *                     .___.
+ *  o__        o__     |   |\
+ * /|          /\      |   |X\
+ * / > o        <\     |   |XX\
+ *
  * Professor.java
  *
- * Defines and works with basic information about professors.
+ * Defines basic information about professors.
  */
 package edu.eci.dosw.techcup.entity.users;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.Setter;
 
 @Entity
-@Table(name = "PROFESSOR")
+@Table(name = "Professor")
 @NoArgsConstructor
-@SuperBuilder
-public class Professor extends Player {}
+@Getter
+@Setter
+public class Professor extends User {}

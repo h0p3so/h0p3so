@@ -4,9 +4,9 @@
  * /|          /\      |   |X\
  * / > o        <\     |   |XX\
  *
- * StaffMember.java
+ * Capitan.java
  *
- * Defines basic information about staff members.
+ * Defines basic information about capitans.
  */
 package edu.eci.dosw.techcup.entity.users;
 
@@ -16,9 +16,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "StaffMember")
+@Table(name = "Capitan")
 @NoArgsConstructor
 @Getter
 @Setter
-public class StaffMember extends User {}
+public class Capitan extends User {
+	private LocalDateTime capitanSince;
+	private Admin         grantedBy;
+}

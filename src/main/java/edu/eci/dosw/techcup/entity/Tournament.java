@@ -1,27 +1,24 @@
+/*
+ *                     .___.
+ *  o__        o__     |   |\
+ * /|          /\      |   |X\
+ * / > o        <\     |   |XX\
+ *
+ * Tournament.java
+ *
+ * Defines basic information about admins.
+ */
 package edu.eci.dosw.techcup.entity;
-
-import edu.eci.dosw.techcup.entity.users.Organizer;
-import edu.eci.dosw.techcup.enums.TournamentStatus;
-
-import java.time.LocalDate;
-import java.util.UUID;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Table(name = "TOURNAMENT")
+@Table(name = "Admin")
 @NoArgsConstructor
-public class Tournament {
-	private UUID             tournamentId;
-	private String           name;
-	private LocalDate        startDate;
-	private LocalDate        endDate;
-	private LocalDate        limitInscriptionDate;
-	private LocalDate        creationDate;
-	private Integer          maxNoTeams;
-	private Double           costPerTeam;
-	private TournamentStatus status;
-	private Organizer        organizer;
-}
+@Getter
+@Setter
+public class Admin extends User {}

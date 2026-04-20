@@ -1,17 +1,24 @@
 /*
+ *                     .___.
+ *  o__        o__     |   |\
+ * /|          /\      |   |X\
+ * / > o        <\     |   |XX\
+ *
  * Organizer.java
  *
- * Defines and works with basic information about organizers.
+ * Defines basic information about organizers.
  */
 package edu.eci.dosw.techcup.entity.users;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.Setter;
 
 @Entity
-@Table(name = "ORGANIZER")
+@Table(name = "Organizer")
 @NoArgsConstructor
-@SuperBuilder
+@Getter
+@Setter
 public class Organizer extends User {}

@@ -1,17 +1,24 @@
 /*
+ *                     .___.
+ *  o__        o__     |   |\
+ * /|          /\      |   |X\
+ * / > o        <\     |   |XX\
+ *
  * Admin.java
  *
- * Defines and works with basic information about admin.
+ * Defines basic information about admins.
  */
 package edu.eci.dosw.techcup.entity.users;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.Setter;
 
 @Entity
-@Table(name = "ADMIN")
+@Table(name = "Admin")
 @NoArgsConstructor
-@SuperBuilder
+@Getter
+@Setter
 public class Admin extends User {}
