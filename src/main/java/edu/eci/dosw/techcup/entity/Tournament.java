@@ -6,9 +6,12 @@
  *
  * Tournament.java
  *
- * Defines basic information about admins.
+ * Defines basic information about tournaments.
  */
 package edu.eci.dosw.techcup.entity;
+
+import edu.eci.dosw.techcup.entity.users.Organizer;
+import edu.eci.dosw.techcup.enums.TournamentStatus;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -16,9 +19,25 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "Admin")
+@Table(name = "Tournament")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Admin extends User {}
+public class Tournament {
+	private UUID             id;
+	private String           name;
+	private Integer          maxNoTeams;
+	private Double           costPerTeam;
+	private String           description;
+	private String           rules;
+	private LocalDateTime    startDate;
+	private LocalDateTime    endDate;
+	private LocalDateTime    inscriptionDeadline;
+	private LocalDateTime    createdOn;
+	private Organizer        organizer;
+	private TournamentStatus status;
+}
