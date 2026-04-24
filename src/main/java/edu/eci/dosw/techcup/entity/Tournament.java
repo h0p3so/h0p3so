@@ -12,6 +12,7 @@ package edu.eci.dosw.techcup.entity;
 
 import edu.eci.dosw.techcup.entity.users.Organizer;
 import edu.eci.dosw.techcup.enums.TournamentStatus;
+import edu.eci.dosw.techcup.entity.Team;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.UUID;
+import java.util.List;
 import java.time.LocalDateTime;
 
 @Entity
@@ -40,4 +42,5 @@ public class Tournament {
 	private LocalDateTime    createdOn;
 	private Organizer        organizer;
 	private TournamentStatus status;
+	private List<Team>       teams;
 }
