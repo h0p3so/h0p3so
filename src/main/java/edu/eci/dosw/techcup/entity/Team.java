@@ -22,7 +22,7 @@ import lombok.Setter;
 
 import java.util.UUID;
 import java.util.List;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "Team")
@@ -36,7 +36,7 @@ public class Team {
 	private Integer          color2RGB;
 	private String           logoURL;
 	private String           backgroundImageURL;
-	private LocalDateTime    creationDate;
+	private LocalDate        creationDate;
 	private Capitan          createdBy;
 	private List<Tournament> participatedIn;
 	private List<TeamMember> members;
