@@ -9,5 +9,4 @@ class TechcupApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
