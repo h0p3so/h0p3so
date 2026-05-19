@@ -1,3 +1,3 @@
 > [!IMPORTANT]
 >
-> Documentation can be found [here](0strezz.github.io)
+> Documentation can be found [here](https://0strezz.github.io)
