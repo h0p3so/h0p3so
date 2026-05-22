@@ -15,10 +15,14 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "Organizer")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Organizer extends User {}
+@SuperBuilder
+public class Organizer extends User {
+    private Admin grantedBy;
+}
