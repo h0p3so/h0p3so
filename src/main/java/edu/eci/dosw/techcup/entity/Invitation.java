@@ -14,8 +14,8 @@ import edu.eci.dosw.techcup.entity.Team;
 import edu.eci.dosw.techcup.entity.users.User;
 import edu.eci.dosw.techcup.enums.InvitationStatus;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,10 +28,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Invitation {
-	private UUID             id;
-	private Team             team;
-	private User             user;
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
+	private Team team;
+	private User user;
 	private InvitationStatus status;
-	private LocalDate        sendAt;
+	private LocalDate sendAt;
 }

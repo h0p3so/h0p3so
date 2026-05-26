@@ -18,8 +18,8 @@ import edu.eci.dosw.techcup.entity.users.Referee;
 import edu.eci.dosw.techcup.enums.MatchStage;
 import edu.eci.dosw.techcup.enums.MatchStatus;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,20 +33,23 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Match {
-	private UUID             id;
-	private Team             team1;
-	private Team             team2;
-	private Tournament       tournament;
-	private Field            playedIn;
-	private Referee          referee;
-	private LocalDateTime    scheduledAt;
-	private Integer          duration;
-	private MatchStage       stage;
-	private Integer          team1Score;
-	private Integer          team2Score;
-	private MatchStatus      status;
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
+	private Team team1;
+	private Team team2;
+	private Tournament tournament;
+	private Field playedIn;
+	private Referee referee;
+	private LocalDateTime scheduledAt;
+	private Integer duration;
+	private MatchStage stage;
+	private Integer team1Score;
+	private Integer team2Score;
+	private MatchStatus status;
 	private List<MatchEvent> events;
-	private LineUp           team1lineUp;
-	private LineUp           team2lineUp;
+	private LineUp team1lineUp;
+	private LineUp team2lineUp;
 }

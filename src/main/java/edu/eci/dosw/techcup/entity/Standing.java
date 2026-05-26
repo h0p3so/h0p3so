@@ -13,8 +13,8 @@ package edu.eci.dosw.techcup.entity;
 import edu.eci.dosw.techcup.entity.Tournament;
 import edu.eci.dosw.techcup.entity.Team;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,17 +27,20 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Standing {
-	private UUID       id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
 	private Tournament tournament;
-	private Team       team;
-	private Integer    matchesPlayed;
-	private Integer    matchesWon;
-	private Integer    matchesLost;
-	private Integer    goalsMade;
-	private Integer    goalsAgainst;
-	private Integer    points;
-	private LocalTime  lastUpdate;
+	private Team team;
+	private Integer matchesPlayed;
+	private Integer matchesWon;
+	private Integer matchesLost;
+	private Integer goalsMade;
+	private Integer goalsAgainst;
+	private Integer points;
+	private LocalTime lastUpdate;
 
 	public Integer getGoalsDiff () {
 		return this.goalsMade - this.goalsAgainst;

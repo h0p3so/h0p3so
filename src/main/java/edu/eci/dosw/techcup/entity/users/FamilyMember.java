@@ -17,12 +17,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import edu.eci.dosw.techcup.enums.FamiliarRelationship;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "FamilyMember")
 @NoArgsConstructor
 @Getter
 @Setter
+@SuperBuilder
 public class FamilyMember extends User {
 	private Student              familiarOf;
 	private FamiliarRelationship relationship;

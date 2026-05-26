@@ -14,8 +14,8 @@ import edu.eci.dosw.techcup.entity.Match;
 import edu.eci.dosw.techcup.entity.TeamMember;
 import edu.eci.dosw.techcup.enums.MatchEventType;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,10 +28,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class MatchEvent {
-	private UUID           id;
-	private Match          match;
-	private TeamMember     player;
-	private Integer        minute;
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
+	private Match match;
+	private TeamMember player;
+	private Integer minute;
 	private MatchEventType type;
 }

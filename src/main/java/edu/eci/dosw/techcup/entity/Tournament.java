@@ -14,8 +14,8 @@ import edu.eci.dosw.techcup.entity.users.Organizer;
 import edu.eci.dosw.techcup.enums.TournamentStatus;
 import edu.eci.dosw.techcup.entity.Team;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,7 +29,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Tournament {
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
 	private UUID             id;
 	private String           name;
 	private Integer          maxNoTeams;

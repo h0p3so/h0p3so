@@ -17,12 +17,14 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "Graduate")
 @NoArgsConstructor
 @Getter
 @Setter
+@SuperBuilder
 public class Graduate extends User {
     private Integer        graduationYear;
     private StudentProgram program;

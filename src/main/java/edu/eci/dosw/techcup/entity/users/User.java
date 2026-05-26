@@ -12,11 +12,9 @@ package edu.eci.dosw.techcup.entity.users;
 import edu.eci.dosw.techcup.enums.UserRole;
 import edu.eci.dosw.techcup.enums.UserGender;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.UUID;
 import java.time.LocalDate;
@@ -26,17 +24,24 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
+@SuperBuilder
 public abstract class User {
-	private UUID       id;
-	private String     email;
-	private String     fullname;
-	private String     password;
-	private UserRole   role;
-	private String     profilePictureURL;
-	private String     socialOneURL;
-	private String     socialTwoURL;
-	private String     socialThreeURL;
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	private UUID id;
+
+	@Builder.Default
+	private UserRole role = UserRole.PLAYER;
+
+	private String email;
+	private String fullname;
+	private String password;
+
+	private String profilePictureURL;
+	private String socialOneURL;
+	private String socialTwoURL;
+	private String socialThreeURL;
 	private UserGender gender;
-	private LocalDate  birthday;
-	private LocalDate  profileCreatedAt;
+	private LocalDate birthday;
+	private LocalDate profileCreatedAt;
 }
