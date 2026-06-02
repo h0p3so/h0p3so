@@ -10,14 +10,15 @@
  */
 package edu.eci.dosw.techcup.entity.users;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import edu.eci.dosw.techcup.enums.FamiliarRelationship;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Entity
 @Table(name = "FamilyMember")
@@ -26,6 +27,6 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 public class FamilyMember extends User {
-	private Student              familiarOf;
+	private List<Student> familiarOf;
 	private FamiliarRelationship relationship;
 }

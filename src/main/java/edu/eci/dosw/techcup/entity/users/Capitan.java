@@ -10,8 +10,7 @@
  */
 package edu.eci.dosw.techcup.entity.users;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,5 +26,7 @@ import java.time.LocalDate;
 @SuperBuilder
 public class Capitan extends User {
 	private LocalDate capitanSince;
-	private Admin         grantedBy;
+	@ManyToOne
+	@JoinColumn(name = "adminId")
+	private Admin grantedBy;
 }
