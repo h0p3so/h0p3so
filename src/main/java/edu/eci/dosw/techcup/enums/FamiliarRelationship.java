@@ -25,5 +25,6 @@ public enum FamiliarRelationship {
 	WIFE,
 	HUSBAND,
 	COUSIN,
-	NEPHEW
+	NEPHEW,
+	UNSPECIFIED
 }

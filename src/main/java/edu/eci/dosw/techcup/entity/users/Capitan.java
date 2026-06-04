@@ -1,13 +1,3 @@
-/*
- *                     .___.
- *  o__        o__     |   |\
- * /|          /\      |   |X\
- * / > o        <\     |   |XX\
- *
- * Capitan.java
- *
- * Defines basic information about capitans.
- */
 package edu.eci.dosw.techcup.entity.users;
 
 import jakarta.persistence.*;
@@ -19,14 +9,15 @@ import lombok.experimental.SuperBuilder;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "Capitan")
+@Table(name = "capitans")
 @NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
 public class Capitan extends User {
+	@Column(name = "capitan_since")
 	private LocalDate capitanSince;
 	@ManyToOne
-	@JoinColumn(name = "adminId")
+	@JoinColumn(name = "granted_by")
 	private Admin grantedBy;
 }

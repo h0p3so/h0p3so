@@ -1,31 +1,24 @@
-/*
- *                     .___.
- *  o__        o__     |   |\
- * /|          /\      |   |X\
- * / > o        <\     |   |XX\
- *
- * Graduate.java
- *
- * Defines basic information about graduated students.
- */
 package edu.eci.dosw.techcup.entity.users;
 
 import edu.eci.dosw.techcup.enums.StudentProgram;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name = "Graduate")
+@Table(name = "graduates")
 @NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
 public class Graduate extends User {
-    private Integer        graduationYear;
-    private StudentProgram program;
+	@Column(name = "graduation_year")
+	private Integer graduationYear;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "program")
+	private StudentProgram program;
 }

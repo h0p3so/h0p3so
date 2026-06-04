@@ -1,20 +1,8 @@
-/*
- *                     .___.
- *  o__        o__     |   |\
- * /|          /\      |   |X\
- * / > o        <\     |   |XX\
- *
- * Student.java
- *
- * Defines basic information about current students at ECI.
- */
 package edu.eci.dosw.techcup.entity.users;
 
 import edu.eci.dosw.techcup.enums.StudentProgram;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,15 +11,22 @@ import lombok.experimental.SuperBuilder;
 import java.util.List;
 
 @Entity
-@Table(name = "Student")
+@Table(name = "students")
 @NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
 public class Student extends User {
-    @ManyToMany(mappedBy = "familiarOf")
-    private List<FamilyMember> familiars;
-    private Integer semester;
-    private Integer eciID;
-    private StudentProgram program;
+	@Column(name = "semester")
+	private Integer semester;
+
+	@Column(name = "eci_id", unique = true, nullable = false)
+	private Integer eciID;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "program", nullable = false)
+	private StudentProgram program;
+
+	@OneToMany(mappedBy = "student")
+	private List<FamilyRelationship> familyMembers;
 }

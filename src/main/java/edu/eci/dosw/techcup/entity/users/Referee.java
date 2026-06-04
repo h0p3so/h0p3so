@@ -1,13 +1,3 @@
-/*
- *                     .___.
- *  o__        o__     |   |\
- * /|          /\      |   |X\
- * / > o        <\     |   |XX\
- *
- * Referee.java
- *
- * Defines basic information about referees.
- */
 package edu.eci.dosw.techcup.entity.users;
 
 import jakarta.persistence.Entity;
@@ -18,9 +8,11 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name = "Referee")
+@Table(name = "referees")
 @NoArgsConstructor
 @Getter
 @Setter
 @SuperBuilder
-public class Referee extends User {}
+public class Referee extends User {
+	// TODO: relation with match
+}

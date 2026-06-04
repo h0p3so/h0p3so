@@ -1,18 +1,8 @@
-/*
- *                     .___.
- *  o__        o__     |   |\
- * /|          /\      |   |X\
- * / > o        <\     |   |XX\
- * User.java
- *
- * Defines a basic structure with which all users can be model.
- */
 package edu.eci.dosw.techcup.entity.users;
 
 import edu.eci.dosw.techcup.enums.UserRole;
 import edu.eci.dosw.techcup.enums.UserGender;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -21,7 +11,7 @@ import java.util.UUID;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "User")
+@Table(name = "users")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -30,30 +20,40 @@ import java.time.LocalDate;
 public abstract class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "userId")
 	private UUID userId;
 
 	@Builder.Default
-	@Column(nullable = false)
+	@Column(name = "role", nullable = false)
 	private UserRole role = UserRole.PLAYER;
 
-	@Column(nullable = false, unique = true)
+	@Column(name = "email", nullable = false, unique = true)
 	private String email;
 
-	@Column(nullable = false)
+	@Column(name = "fullname", nullable = false)
 	private String fullname;
 
-	@Column(nullable = false)
+	@Column(name = "password", nullable = false)
 	private String password;
 
-	@Column(nullable = false)
+	@Column(name = "gender", nullable = false)
 	private UserGender gender;
 
-	@Column(nullable = false)
+	@Column(name = "creation_date", nullable = false)
 	private LocalDate profileCreatedAt;
 
+	@Column(name = "pp_url")
 	private String profilePictureURL;
+
+	@Column(name = "social_1_url")
 	private String socialOneURL;
+
+	@Column(name = "social_2_url")
 	private String socialTwoURL;
+
+	@Column(name = "social_3_url")
 	private String socialThreeURL;
+
+	@Column(name = "birthday")
 	private LocalDate birthday;
 }
