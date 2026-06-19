@@ -14,7 +14,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @SuperBuilder
-public class Graduate extends User {
+public class Graduate extends Player {
 	@Column(name = "graduation_year")
 	private Integer graduationYear;
 

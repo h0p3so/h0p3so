@@ -13,4 +13,4 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @SuperBuilder
-public class Professor extends User {}
+public class Professor extends Player {}

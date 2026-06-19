@@ -20,7 +20,7 @@ import java.time.LocalDate;
 public abstract class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "userId")
+	@Column(name = "user_id")
 	private UUID userId;
 
 	@Builder.Default

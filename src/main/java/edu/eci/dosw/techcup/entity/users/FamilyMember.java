@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @SuperBuilder
-public class FamilyMember extends User {
+public class FamilyMember extends Player {
 	@OneToMany(mappedBy = "familiar")
-	private List<FamilyRelationship> familyStudents;
+	private List<FamilyStudent> familyStudents;
 }

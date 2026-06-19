@@ -5,14 +5,15 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "family_relationships")
+@Table(name = "family_students")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FamilyRelationship {
+@Builder
+public class FamilyStudent {
 	@EmbeddedId
-	private FamilyRelationshipId familyRelationshipId;
+	private FamilyStudentId familyStudentId;
 
 	@ManyToOne
 	@MapsId("studentId")

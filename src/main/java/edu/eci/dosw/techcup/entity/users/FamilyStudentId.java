@@ -13,7 +13,8 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class FamilyRelationshipId implements Serializable {
+@Builder
+public class FamilyStudentId implements Serializable {
 	@Column(name = "student_id")
 	private UUID studentId;
 
@@ -30,11 +31,11 @@ public class FamilyRelationshipId implements Serializable {
 		if (this == o) {
 			return true;
 		}
-		if ((o instanceof FamilyRelationshipId) == false) {
+		if ((o instanceof FamilyStudentId) == false) {
 			return false;
 		}
 
-		final FamilyRelationshipId other = (FamilyRelationshipId) o;
+		final FamilyStudentId other = (FamilyStudentId) o;
 		return Objects.equals(other.getFamiliarId(), this.familiarId) && Objects.equals(other.getStudentId(), this.studentId);
 	}
 }

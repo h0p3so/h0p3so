@@ -16,7 +16,7 @@ import java.util.List;
 @Getter
 @Setter
 @SuperBuilder
-public class Student extends User {
+public class Student extends Player {
 	@Column(name = "semester")
 	private Integer semester;
 
@@ -28,5 +28,5 @@ public class Student extends User {
 	private StudentProgram program;
 
 	@OneToMany(mappedBy = "student")
-	private List<FamilyRelationship> familyMembers;
+	private List<FamilyStudent> familyMembers;
 }
