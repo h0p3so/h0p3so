@@ -72,6 +72,10 @@ public class Match {
 	@JoinColumn(name = "team_two_line_up")
 	private LineUp teamTwoLineUp;
 
+	@ManyToOne
+	@JoinColumn(name = "tournament")
+	private Tournament tournament;
+
 	@OneToMany(mappedBy = "match")
 	List<MatchEvent> events;
 }

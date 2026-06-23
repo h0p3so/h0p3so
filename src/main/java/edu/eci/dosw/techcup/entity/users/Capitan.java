@@ -1,6 +1,7 @@
 package edu.eci.dosw.techcup.entity.users;
 
 import edu.eci.dosw.techcup.entity.Invitation;
+import edu.eci.dosw.techcup.entity.Payment;
 import edu.eci.dosw.techcup.entity.teams.Team;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -27,4 +28,6 @@ public class Capitan extends Player {
 	private List<Team> teams;
 	@OneToMany(mappedBy = "sentBy")
 	List<Invitation> invitations;
+	@OneToMany(mappedBy = "uploadedBy")
+	List<Payment> payments;
 }

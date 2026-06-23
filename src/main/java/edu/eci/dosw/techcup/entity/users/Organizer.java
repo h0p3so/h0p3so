@@ -1,13 +1,13 @@
 package edu.eci.dosw.techcup.entity.users;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import edu.eci.dosw.techcup.entity.Tournament;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+
+import java.util.List;
 
 @Entity
 @Table(name = "organizers")
@@ -19,4 +19,7 @@ public class Organizer extends User {
 	@ManyToOne
 	@JoinColumn(name = "granted_by")
 	private Admin grantedBy;
+
+	@OneToMany(mappedBy = "organizer")
+	private List<Tournament> tournaments;
 }

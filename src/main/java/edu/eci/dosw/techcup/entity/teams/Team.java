@@ -2,6 +2,7 @@ package edu.eci.dosw.techcup.entity.teams;
 
 import edu.eci.dosw.techcup.entity.lineups.LineUp;
 import edu.eci.dosw.techcup.entity.Invitation;
+import edu.eci.dosw.techcup.entity.standings.Standing;
 import edu.eci.dosw.techcup.entity.users.Capitan;
 import jakarta.persistence.*;
 import lombok.*;
@@ -53,4 +54,7 @@ public class Team {
 
 	@OneToMany(mappedBy = "team")
 	List<LineUp> lineups;
+
+	@OneToMany(mappedBy = "team")
+	List<Standing> standings;
 }
