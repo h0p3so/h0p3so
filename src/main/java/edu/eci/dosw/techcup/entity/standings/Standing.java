@@ -3,10 +3,7 @@ package edu.eci.dosw.techcup.entity.standings;
 import edu.eci.dosw.techcup.entity.Tournament;
 import edu.eci.dosw.techcup.entity.teams.Team;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 

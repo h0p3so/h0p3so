@@ -10,3 +10,6 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 .idea/
+
+# in order to get the password please read the readme at section about password
+.password
