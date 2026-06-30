@@ -12,4 +12,4 @@ buildNumber.properties
 .idea/
 
 # in order to get the password please read the readme at section about password
-.password
+password
