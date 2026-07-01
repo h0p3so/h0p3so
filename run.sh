@@ -18,3 +18,5 @@ spring:
 EOF
 
 mvn package
+
+echo '' > src/main/resources/application.yml
