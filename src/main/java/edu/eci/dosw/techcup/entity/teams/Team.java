@@ -21,16 +21,16 @@ import java.util.UUID;
 public class Team {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "team_id")
+	@Column(name = "team_id", nullable = false, updatable = false)
 	private UUID teamId;
 
-	@Column(name = "name", nullable = false)
+	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
 	@Column(name = "color_one", nullable = false)
 	private Integer colorOne;
 
-	@Column(name = "color_two", nullable = false)
+	@Column(name = "color_two")
 	private Integer colorTwo;
 
 	@Column(name = "logo_url")
@@ -39,22 +39,27 @@ public class Team {
 	@Column(name = "background_url")
 	private String backgroundURL;
 
-	@Column(name = "creation_date")
+	@Column(name = "creation_date", nullable = false, updatable = false)
 	private LocalDate creationDate;
 
 	@ManyToOne
-	@JoinColumn(name = "capitan")
+	@JoinColumn(name = "capitan", nullable = false)
 	private Capitan capitan;
 
 	@OneToMany(mappedBy = "team")
-	List<TeamPlayer> players;
+	private List<TeamPlayer> players;
 
 	@OneToMany(mappedBy = "team")
-	List<Invitation> invitations;
+	private List<Invitation> invitations;
 
 	@OneToMany(mappedBy = "team")
-	List<LineUp> lineups;
+	private List<LineUp> lineups;
 
 	@OneToMany(mappedBy = "team")
-	List<Standing> standings;
+	private List<Standing> standings;
+
+	@PrePersist
+	public void beforeInsert () {
+		this.creationDate = LocalDate.now();
+	}
 }

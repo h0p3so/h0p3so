@@ -22,60 +22,68 @@ import java.util.UUID;
 public class Match {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "match_id")
+	@Column(name = "match_id", nullable = false, updatable = false)
 	private UUID matchId;
 
 	@Column(name = "scheduled_at", nullable = false)
 	private LocalDateTime scheduledAt;
 
-	@Column(name = "expected_duration")
+	@Column(name = "expected_duration", nullable = false)
 	private Integer expectedDuration;
 
 	@Column(name = "actual_duration")
 	private Integer actualDuration;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "stage")
+	@Column(name = "stage", nullable = false)
 	private MatchStage stage;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status")
+	@Column(name = "status", nullable = false)
 	private MatchStatus status;
 
-	@Column(name = "team_one_score")
+	@Column(name = "team_one_score", nullable = false)
 	private Integer teamOneScore;
 
-	@Column(name = "team_two_score")
+	@Column(name = "team_two_score", nullable = false)
 	private Integer teamTwoScore;
 
 	@OneToOne
-	@JoinColumn(name = "team_one")
+	@JoinColumn(name = "team_one", nullable = false)
 	private Team teamOne;
 
 	@OneToOne
-	@JoinColumn(name = "team_two")
+	@JoinColumn(name = "team_two", nullable = false)
 	private Team teamTwo;
 
 	@OneToOne
-	@JoinColumn(name = "field")
+	@JoinColumn(name = "field", nullable = false)
 	private Field field;
 
 	@ManyToOne
-	@JoinColumn(name = "referee")
+	@JoinColumn(name = "referee", nullable = false)
 	private Referee referee;
 
 	@ManyToOne
-	@JoinColumn(name = "team_one_line_up")
+	@JoinColumn(name = "team_one_line_up", nullable = false)
 	private LineUp teamOneLineUp;
 
 	@ManyToOne
-	@JoinColumn(name = "team_two_line_up")
+	@JoinColumn(name = "team_two_line_up", nullable = false)
 	private LineUp teamTwoLineUp;
 
 	@ManyToOne
-	@JoinColumn(name = "tournament")
+	@JoinColumn(name = "tournament", nullable = false)
 	private Tournament tournament;
 
 	@OneToMany(mappedBy = "match")
-	List<MatchEvent> events;
+	private List<MatchEvent> events;
+
+	@PrePersist
+	public void beforeInsert () {
+		this.stage = MatchStage.GROUP;
+		this.status = MatchStage.SCHEDULED;
+		this.teamOneScore = 0;
+		this.teamTwoScore = 0;
+	}
 }

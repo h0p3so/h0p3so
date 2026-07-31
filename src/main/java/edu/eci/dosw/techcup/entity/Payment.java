@@ -18,24 +18,30 @@ import java.util.UUID;
 public class Payment {
 	@Id
 	@GeneratedValue
-	@Column(name = "payment_id")
+	@Column(name = "payment_id", nullable = false, updatable = false)
 	private UUID paymentId;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "status")
+	@Column(name = "status", nullable = false)
 	private PaymentStatus status;
 
-	@Column(name = "uploaded_at")
+	@Column(name = "uploaded_at", nullable = false, updatable = false)
 	private LocalDateTime uploadedAt;
 
-	@Column(name = "proofURL")
+	@Column(name = "proofURL", nullable = false)
 	private String proofURL;
 
 	@ManyToOne
-	@JoinColumn(name = "uploaded_by")
+	@JoinColumn(name = "uploaded_by", nullable = false)
 	private Capitan uploadedBy;
 
 	@ManyToOne
-	@JoinColumn(name = "torunament")
+	@JoinColumn(name = "torunament", nullable = false)
 	private Tournament tournament;
+
+	@PrePersist
+	public void beforeInsert () {
+		this.status = PaymentStatus.PENDING;
+		this.uploadedAt = LocalDateTime.now();
+	}
 }

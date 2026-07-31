@@ -20,25 +20,31 @@ import java.util.UUID;
 public class Invitation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "invitation_id")
+	@Column(name = "invitation_id", nullable = false, updatable = false)
 	private UUID invitationId;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "status", nullable = false)
 	private InvitationStatus status;
 
-	@Column(name = "sent_at", nullable = false)
+	@Column(name = "sent_at", nullable = false, updatable = false)
 	private LocalDateTime sentAt;
 
 	@ManyToOne
-	@JoinColumn(name = "sent_by")
+	@JoinColumn(name = "sent_by", nullable = false, updatable = false)
 	private Capitan sentBy;
 
 	@ManyToOne
-	@JoinColumn(name = "sent_to")
+	@JoinColumn(name = "sent_to", nullable = false, updatable = false)
 	private Player sentTo;
 
 	@ManyToOne
-	@JoinColumn(name = "team")
+	@JoinColumn(name = "team", nullable = false)
 	private Team team;
+
+	@PrePersist
+	public void beforeInsert () {
+		this.status = InvitationStatus.PENDING;
+		this.sentAt = LocalDateTime.now();
+	}
 }

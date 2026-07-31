@@ -15,10 +15,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class FamilyStudentId implements Serializable {
-	@Column(name = "student_id")
+	@Column(name = "student_id", nullable = false)
 	private UUID studentId;
 
-	@Column(name = "familiar_id")
+	@Column(name = "familiar_id", nullable = false)
 	private UUID familiarId;
 
 	@Override

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
+import org.hibernate.annotations.Check;
 
 @Entity
 @Table(name = "fields")
@@ -12,13 +13,19 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Check(constraints = """
+	matched_played >= 0
+""")
 public class Field {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(name = "field_id")
 	private UUID fieldId;
 
-	@Column(name = "description")
+	@Column(name = "name", nullable = false)
+	private String name;
+
+	@Column(name = "description", length = 1024)
 	private String description;
 
 	@Column(name = "photo_url")
@@ -26,4 +33,9 @@ public class Field {
 
 	@Column(name = "matched_played")
 	private Integer matchesPlayed;
+
+	@PrePersist
+	public void beforeInsert () {
+		this.matchesPlayed = 0;
+	}
 }

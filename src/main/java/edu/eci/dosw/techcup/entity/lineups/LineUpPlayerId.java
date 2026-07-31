@@ -16,10 +16,10 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class LineUpPlayerId implements Serializable {
-	@Column(name = "player_id")
+	@Column(name = "player_id", nullable = false)
 	private UUID playerId;
 
-	@Column(name = "lineup_id")
+	@Column(name = "lineup_id", nullable = false)
 	private UUID lineUpId;
 
 	@Override

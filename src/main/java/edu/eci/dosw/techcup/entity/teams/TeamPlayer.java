@@ -17,16 +17,6 @@ public class TeamPlayer {
 	@EmbeddedId
 	private TeamPlayerId teamPlayerId;
 
-	@ManyToOne
-	@MapsId("playerId")
-	@JoinColumn(name = "player_id")
-	private Player player;
-
-	@ManyToOne
-	@MapsId("teamId")
-	@JoinColumn(name = "team_id")
-	private Team team;
-
 	@Enumerated(EnumType.STRING)
 	@Column(name = "position", nullable = false)
 	private PlayerPosition position;
@@ -34,9 +24,24 @@ public class TeamPlayer {
 	@Column(name = "dorsal_number", nullable = false)
 	private Integer dorsalNumber;
 
-	@Column(name = "joined_on", nullable = false)
+	@Column(name = "joined_on", nullable = false, updatable = false)
 	private LocalDate joinedOn;
 
-	@Column(name = "left_on", nullable = false)
+	@Column(name = "left_on")
 	private LocalDate leftOn;
+
+	@ManyToOne
+	@MapsId("playerId")
+	@JoinColumn(name = "player_id", nullable = false)
+	private Player player;
+
+	@ManyToOne
+	@MapsId("teamId")
+	@JoinColumn(name = "team_id", nullable = false)
+	private Team team;
+
+	@PrePersist
+	public void beforeInsert () {
+		this.joinedOn = LocalDate.now();
+	}
 }

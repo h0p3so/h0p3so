@@ -23,11 +23,11 @@ import java.util.Set;
 @NoArgsConstructor
 public class Player extends User {
 	@OneToMany(mappedBy = "player")
-	List<TeamPlayer> havePlayedIn;
+	private List<TeamPlayer> havePlayedIn;
 
 	@OneToMany(mappedBy = "sentTo")
-	List<Invitation> invitations;
+	private List<Invitation> invitations;
 
 	@OneToMany(mappedBy = "player")
-	List<TeamPlayer> lineUps;
+	private List<TeamPlayer> lineUps;
 }

@@ -19,15 +19,24 @@ import java.util.List;
 @Setter
 @SuperBuilder
 public class Capitan extends Player {
-	@Column(name = "capitan_since")
+	@Column(name = "capitan_since", nullable = false, updatable = false)
 	private LocalDate capitanSince;
+
 	@ManyToOne
-	@JoinColumn(name = "granted_by")
+	@JoinColumn(name = "granted_by", nullable = false)
 	private Admin grantedBy;
+
 	@OneToMany(mappedBy = "capitan")
 	private List<Team> teams;
+
 	@OneToMany(mappedBy = "sentBy")
-	List<Invitation> invitations;
+	private List<Invitation> invitations;
+
 	@OneToMany(mappedBy = "uploadedBy")
-	List<Payment> payments;
+	private List<Payment> payments;
+
+	@PrePersist
+	public void beforeInsert () {
+		this.capitanSince = LocalDate.now();
+	}
 }

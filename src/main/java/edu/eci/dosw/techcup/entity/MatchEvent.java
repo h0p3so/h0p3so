@@ -17,19 +17,20 @@ import java.util.UUID;
 public class MatchEvent {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(name = "match_event_id", nullable = false, updatable = false)
 	private UUID matchEventId;
 
-	@Column(name = "minute", nullable = false)
+	@Column(name = "minute", nullable = false, updatable = false)
 	private Integer minute;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "event_type", nullable = false)
+	@Column(name = "event_type", nullable = false, updatable = false)
 	private MatchEventType eventType;
 
 	@OneToOne
 	private Player player;
 
 	@ManyToOne
-	@JoinColumn(name = "match")
+	@JoinColumn(name = "match", nullable = false, updatable = false)
 	private Match match;
 }

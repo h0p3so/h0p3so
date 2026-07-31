@@ -13,3 +13,6 @@ buildNumber.properties
 
 # in order to get the password please read the readme at section about password
 password
+
+# nobody wants the lock file
+src/main/resources/docs/uml/*lock

@@ -14,10 +14,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TeamPlayerId implements Serializable {
-	@Column(name = "player_id")
+	@Column(name = "player_id", nullable = false)
 	private UUID playerId;
 
-	@Column(name = "team_id")
+	@Column(name = "team_id", nullable = false)
 	private UUID teamId;
 
 	@Override

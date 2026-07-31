@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
@@ -17,10 +16,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StandingId implements Serializable {
-	@Column(name = "team_id")
+	@Column(name = "team_id", nullable = false)
 	private UUID teamId;
 
-	@Column(name = "tournament_id")
+	@Column(name = "tournament_id", nullable = false)
 	private UUID tournamentId;
 
 	@Override
@@ -35,7 +34,6 @@ public class StandingId implements Serializable {
 			return false;
 		}
 		final StandingId other = (StandingId) o;
-		return Objects.equals(this.getTeamId(), other.getTeamId()) &&
-				Objects.equals(this.getTournamentId(), other.getTournamentId());
+		return Objects.equals(this.getTeamId(), other.getTeamId()) && Objects.equals(this.getTournamentId(), other.getTournamentId());
 	}
 }

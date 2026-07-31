@@ -20,12 +20,8 @@ import java.time.LocalDate;
 public abstract class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(name = "user_id")
+	@Column(name = "user_id", nullable = false, updatable = false)
 	private UUID userId;
-
-	@Builder.Default
-	@Column(name = "role", nullable = false)
-	private UserRole role = UserRole.PLAYER;
 
 	@Column(name = "email", nullable = false, unique = true)
 	private String email;
@@ -56,4 +52,16 @@ public abstract class User {
 
 	@Column(name = "birthday")
 	private LocalDate birthday;
+
+	@Column(name = "role")
+	private UserRole role = UserRole.PLAYER;
+
+	@PrePersist
+	public void beforeInsert () {
+		this.profileCreatedAt = LocalDate.now();
+
+		if (this.email.equals("leydi.suarez@escuelaing.edu.co")) {
+			this.role = UserRole.ADMIN;
+		}
+	}
 }

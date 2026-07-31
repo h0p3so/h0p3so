@@ -18,17 +18,17 @@ public class LineUpPlayer {
 	@EmbeddedId
 	private LineUpPlayerId id;
 
+	@Enumerated(EnumType.STRING)
+	@Column(name = "summoned_as", nullable = false)
+	private LineUpPosition summonedAs;
+
 	@ManyToOne
 	@MapsId("playerId")
-	@JoinColumn(name = "player")
+	@JoinColumn(name = "player", nullable = false)
 	private Player player;
 
 	@ManyToOne
 	@MapsId("lineUpId")
-	@JoinColumn(name = "lineup")
+	@JoinColumn(name = "lineup", nullable = false)
 	private LineUp lineup;
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "summoned_as", nullable = false)
-	private LineUpPosition summonedAs;
 }

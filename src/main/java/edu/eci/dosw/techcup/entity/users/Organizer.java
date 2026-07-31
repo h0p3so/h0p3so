@@ -17,7 +17,7 @@ import java.util.List;
 @SuperBuilder
 public class Organizer extends User {
 	@ManyToOne
-	@JoinColumn(name = "granted_by")
+	@JoinColumn(name = "granted_by", nullable = false)
 	private Admin grantedBy;
 
 	@OneToMany(mappedBy = "organizer")

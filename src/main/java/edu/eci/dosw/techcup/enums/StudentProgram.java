@@ -1,13 +1,3 @@
-/*
- *                     .___.
- *  o__        o__     |   |\
- * /|          /\      |   |X\
- * / > o        <\     |   |XX\
- *
- * StudentProgram.java
- *
- * Defines all the possible majors a student could be enrolled in.
- */
 package edu.eci.dosw.techcup.enums;
 
 public enum StudentProgram {

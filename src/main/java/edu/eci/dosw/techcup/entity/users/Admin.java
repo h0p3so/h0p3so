@@ -18,8 +18,8 @@ import java.util.List;
 @SuperBuilder
 public class Admin extends User {
 	@OneToMany(mappedBy = "grantedBy")
-	List<Capitan> capitanDelegations;
+	private List<Capitan> capitanDelegations;
 
 	@OneToMany(mappedBy = "grantedBy")
-	List<Organizer> organizersDelegations;
+	private List<Organizer> organizersDelegations;
 }
