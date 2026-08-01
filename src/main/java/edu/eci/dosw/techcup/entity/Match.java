@@ -82,7 +82,7 @@ public class Match {
 	@PrePersist
 	public void beforeInsert () {
 		this.stage = MatchStage.GROUP;
-		this.status = MatchStage.SCHEDULED;
+		this.status = MatchStatus.SCHEDULED;
 		this.teamOneScore = 0;
 		this.teamTwoScore = 0;
 	}

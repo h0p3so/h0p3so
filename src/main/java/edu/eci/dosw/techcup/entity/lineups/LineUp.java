@@ -34,7 +34,7 @@ public class LineUp {
 	@OneToMany(mappedBy = "lineup")
 	private List<LineUpPlayer> lineUp;
 
-	@PrePersise
+	@PrePersist
 	public void beforeInsert () {
 		this.createdOn = LocalDate.now();
 	}
