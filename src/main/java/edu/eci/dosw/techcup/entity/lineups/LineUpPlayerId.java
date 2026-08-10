@@ -1,6 +1,5 @@
 package edu.eci.dosw.techcup.entity.lineups;
 
-import edu.eci.dosw.techcup.entity.users.FamilyStudentId;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.*;

@@ -2,6 +2,7 @@ package edu.eci.dosw.techcup.entity;
 
 import edu.eci.dosw.techcup.entity.lineups.LineUp;
 import edu.eci.dosw.techcup.entity.teams.Team;
+import edu.eci.dosw.techcup.entity.tournament.Tournament;
 import edu.eci.dosw.techcup.entity.users.Referee;
 import edu.eci.dosw.techcup.enums.MatchStage;
 import edu.eci.dosw.techcup.enums.MatchStatus;
@@ -48,15 +49,15 @@ public class Match {
 	@Column(name = "team_two_score", nullable = false)
 	private Integer teamTwoScore;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "team_one", nullable = false)
 	private Team teamOne;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "team_two", nullable = false)
 	private Team teamTwo;
 
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "field", nullable = false)
 	private Field field;
 

@@ -59,9 +59,5 @@ public abstract class User {
 	@PrePersist
 	public void beforeInsert () {
 		this.profileCreatedAt = LocalDate.now();
-
-		if (this.email.equals("leydi.suarez@escuelaing.edu.co")) {
-			this.role = UserRole.ADMIN;
-		}
 	}
 }

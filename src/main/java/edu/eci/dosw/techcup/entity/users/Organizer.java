@@ -1,6 +1,6 @@
 package edu.eci.dosw.techcup.entity.users;
 
-import edu.eci.dosw.techcup.entity.Tournament;
+import edu.eci.dosw.techcup.entity.tournament.Tournament;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

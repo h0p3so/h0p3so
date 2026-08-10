@@ -1,7 +1,7 @@
 package edu.eci.dosw.techcup.entity.users;
 
 import edu.eci.dosw.techcup.entity.Invitation;
-import edu.eci.dosw.techcup.entity.Payment;
+import edu.eci.dosw.techcup.entity.tournament.Payment;
 import edu.eci.dosw.techcup.entity.teams.Team;
 import jakarta.persistence.*;
 import lombok.Getter;

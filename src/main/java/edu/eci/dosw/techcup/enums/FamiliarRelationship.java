@@ -11,7 +11,7 @@ public enum FamiliarRelationship {
 	SON,
 	DAUGHTER,
 	BOYFRIEND,
-	GIRLFRIED,
+	GIRLFRIEND,
 	WIFE,
 	HUSBAND,
 	COUSIN,

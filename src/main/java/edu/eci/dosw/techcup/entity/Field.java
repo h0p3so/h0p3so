@@ -3,6 +3,7 @@ package edu.eci.dosw.techcup.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 import java.util.UUID;
 import org.hibernate.annotations.Check;
 
@@ -33,6 +34,9 @@ public class Field {
 
 	@Column(name = "matched_played")
 	private Integer matchesPlayed;
+
+	@OneToMany(mappedBy = "field")
+	private List<Match> matches;
 
 	@PrePersist
 	public void beforeInsert () {

@@ -1,11 +1,9 @@
 package edu.eci.dosw.techcup.entity.standings;
 
-import edu.eci.dosw.techcup.entity.Tournament;
+import edu.eci.dosw.techcup.entity.tournament.Tournament;
 import edu.eci.dosw.techcup.entity.teams.Team;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.DialectOverride;
-import org.springframework.cglib.core.Local;
 import java.time.LocalDateTime;
 import org.hibernate.annotations.Check;
 
@@ -53,6 +51,9 @@ public class Standing {
 	@Column(name = "last_update", nullable = false)
 	private LocalDateTime lastUpdate;
 
+	@Column(name = "goal_diff", nullable = false)
+	private Integer goalsDiff;
+
 	@ManyToOne
 	@MapsId("teamId")
 	@JoinColumn(name = "team_id", nullable = false)
@@ -72,11 +73,15 @@ public class Standing {
 		this.goalsAgainst = 0;
 		this.goalsMade = 0;
 		this.points = 0;
+		this.goalsDiff = 0;
 		this.lastUpdate = LocalDateTime.now();
 	}
 
 	@PreUpdate
 	public void beforeUpdate () {
 		this.lastUpdate = LocalDateTime.now();
+		this.goalsDiff = this.goalsMade - this.goalsAgainst;
 	}
+
+
 }

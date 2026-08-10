@@ -27,7 +27,8 @@ public class MatchEvent {
 	@Column(name = "event_type", nullable = false, updatable = false)
 	private MatchEventType eventType;
 
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name = "player", nullable = false)
 	private Player player;
 
 	@ManyToOne
